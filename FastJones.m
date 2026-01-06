@@ -30,15 +30,6 @@ for i = 1:loops1
     ucache = ucache(ismember(ucache,setdiff(ucache,[0])));
     ucache = sort(ucache);
     loops = loops+length(setdiff(checkarray,ucache));
-    if length(ucache)>1
-        for j = 1:length(ucache)-1
-            first = ucache(j);
-            second = ucache(j+1);
-            if second-first ~= 1
-                loops = loops + 1;
-            end
-        end
-    end
     loopcache = [loopcache, loops];
     ucache = [];
 end
@@ -103,4 +94,5 @@ poly = poly(2:end);
 poly = poly.*((-1)^writhe1);
 order = order-3*writhe1;
 x = [order,poly];
+
 end
